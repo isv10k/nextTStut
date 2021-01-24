@@ -1,2 +1,1 @@
-# nextTStut
-next.js typescript 
+## next typescript basic
