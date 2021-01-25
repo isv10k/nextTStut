@@ -1,15 +1,26 @@
+import Head from 'next/head'
 import Link from 'next/link'
-import Layout from '../components/Layout'
+import Layout, { siteTitle } from '../components/Layout'
+import utilStyles from '../styles/utils.module.css'
 
-const IndexPage = () => (
-  <Layout title="Home | Next.js + TypeScript Example">
-    <h1>Learn Next.js 👋</h1>
-    <p>
-      <Link href="/about">
-        <a>About</a>
-      </Link>
-    </p>
-  </Layout>
-)
-
-export default IndexPage
+export default function Home() {
+    return (
+        <Layout home>
+            <Head>
+                <title>{siteTitle}</title>
+            </Head>
+            <section className={utilStyles.headingMd}>
+                <p>[Your Self Introduction]</p>
+                <p>
+                    (This is a sample website - you’ll be building a site like this on{' '}
+                    <a href="https://nextjs.org/learn">our Next.js tutorial</a>.)
+          </p>
+                <p>
+                    <Link href="/posts/first-post">
+                        <a className={utilStyles.colorInherit}>Post</a>
+                    </Link>
+                </p>
+            </section>
+        </Layout>
+    )
+}
