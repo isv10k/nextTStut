@@ -1,17 +1,18 @@
-import React, { ReactNode } from 'react'
-import Link from 'next/link'
 import Head from 'next/head'
 import styles from './layout.module.css'
 import utilStyles from '../styles/utils.module.css'
+import Link from 'next/link'
 
-type Props = {
-    children?: ReactNode
-    home?: boolean
-}
-const name: string = 'Sergey';
+const name = '[Your Name]'
 export const siteTitle = 'Next.js Sample Website'
 
-export default function Layout({ children, home=false }) {
+export default function Layout({
+    children,
+    home
+}: {
+    children: React.ReactNode
+    home?: boolean
+}) {
     return (
         <div className={styles.container}>
             <Head>
@@ -24,7 +25,7 @@ export default function Layout({ children, home=false }) {
                     property="og:image"
                     content={`https://og-image.now.sh/${encodeURI(
                         siteTitle
-                    )}.png?theme=light&md=0&fontSize=75px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnextjs-black-logo.svg`}
+                    )}.png?theme=light&md=0&fontSize=75px&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnextjs-black-logo.svg`}
                 />
                 <meta name="og:title" content={siteTitle} />
                 <meta name="twitter:card" content="summary_large_image" />
@@ -69,34 +70,3 @@ export default function Layout({ children, home=false }) {
         </div>
     )
 }
-
-
-// const Layout = ({ children, title = 'This is the default title' }: Props) => (
-//     <div>
-//         <Head>
-//             <title>{title}</title>
-//         </Head>
-//         <header>
-//             <nav>
-//                 <Link href="/">
-//                     <a>Home</a>
-//                 </Link>{' '} |{' '}
-//                 <Link href="/about">
-//                     <a>About</a>
-//                 </Link>{' '} |{' '}
-//                 <Link href="/users">
-//                     <a>Users List</a>
-//                 </Link>{' '} |
-//                 <a href="/api/users">Users API</a>
-//             </nav>
-//         </header>
-//         {children}
-//         <footer>
-//             <hr />
-//             <span>I'm here to stay (Footer)</span>
-//             <img src="/vercel.png" alt="Vercel Logo" width='200' height='100' className="logo" />
-//         </footer>
-//     </div>
-// )
-
-//export default Layout
